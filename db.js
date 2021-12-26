@@ -24,12 +24,12 @@ let movies = [
 export const getMovies = () => movies;
 
 export const getById = (id) => {
-  const filteredMovies = movies.filter((movie) => movie.id === String(id));
+  const filteredMovies = movies.filter((movie) => movie.id === id);
   return filteredMovies[0];
 };
 
 export const deleteMovie = (id) => {
-  const cleanedMovies = movies.filter((movie) => movie.id !== String(id));
+  const cleanedMovies = movies.filter((movie) => movie.id !== id);
   // 내가 찾는 것과 다른 ID의 movie를 모두 선택
   if (movies.length > cleanedMovies.length) {
     movies = cleanedMovies;

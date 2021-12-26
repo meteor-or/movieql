@@ -1,5 +1,5 @@
 import { createGraphQLServer } from "graphql-yoga";
-import { getMovies, getById } from "./db.js";
+import { getMovies, getById, addMovie, deleteMovie } from "./db.js";
 
 //schema
 const typeDefs = `
@@ -16,6 +16,7 @@ type Query {
 
 type Mutation {
   addMovie(name: String!, score: Int!): Movie!
+  deleteMovie(id: Int!): Boolean!
 }
 `;
 
@@ -27,6 +28,7 @@ const resolvers = {
   },
   Mutation: {
     addMovie: (_, { name, score }) => addMovie(name, score),
+    deleteMovie: (_, { id }) => deleteMovie(id),
   },
 };
 
