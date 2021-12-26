@@ -1,34 +1,27 @@
 import { createGraphQLServer } from "graphql-yoga";
-import { getMovies, getById, addMovie, deleteMovie } from "./db.js";
+import { getMovies } from "./db.js";
 
 //schema
 const typeDefs = `
+
 type Movie {
   id: Int!
-  name: String!
-  score: Int!
+  title: String!
+  rating: Float!
+  summary: String!
+  language: String!
+  medium_cover_image: String!
 }
 
 type Query {
-  movies: [Movie]!
-  movie(id: Int!): Movie
-}
-
-type Mutation {
-  addMovie(name: String!, score: Int!): Movie!
-  deleteMovie(id: Int!): Boolean!
+  movies(limit: Int, rating: Float): [Movie]!
 }
 `;
 
 //resolver
 const resolvers = {
   Query: {
-    movies: () => getMovies(),
-    movie: (_, { id }) => getById(id),
-  },
-  Mutation: {
-    addMovie: (_, { name, score }) => addMovie(name, score),
-    deleteMovie: (_, { id }) => deleteMovie(id),
+    movies: (_, { rating, limit }) => getMovies(limit, rating),
   },
 };
 
