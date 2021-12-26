@@ -1,0 +1,30 @@
+{
+  "name": "movie-ql",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meteor-or/movieql.git"
+  },
+  "author": "meteorlee",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/meteor-or/movieql/issues"
+  },
+  "homepage": "https://github.com/meteor-or/movieql#readme",
+  "dependencies": {
+    "graphql": "^16.2.0",
+    "graphql-yoga": "^2.0.0-alpha.3"
+  },
+  "scripts": {
+    "start": "nodemon"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.5",
+    "@babel/node": "^7.16.5",
+    "@babel/preset-env": "^7.16.5"
+  }
+}
