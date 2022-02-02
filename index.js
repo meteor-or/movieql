@@ -3,7 +3,6 @@ import { getMovies } from "./db.js";
 
 //schema
 const typeDefs = `
-
 type Movie {
   id: Int!
   title: String!
